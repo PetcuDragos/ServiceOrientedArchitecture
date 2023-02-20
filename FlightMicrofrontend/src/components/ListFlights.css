@@ -1,0 +1,31 @@
+.flight-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flight-trip {
+  display: flex;
+  flex-direction: column;
+}
+
+.flight-title {
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 1s;
+  z-index: 2;
+}
+
+
+.flight-content {
+  margin-left: 5%;
+  overflow: hidden;
+  max-height: 1000px;
+  transition: all .5s ease-in-out;
+  animation-duration: 1s;
+  display: flex;
+  flex-direction: column;
+}
