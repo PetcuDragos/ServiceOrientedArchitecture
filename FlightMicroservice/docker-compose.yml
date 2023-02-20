@@ -17,5 +17,23 @@ services:
       - data-service-network
     depends_on:
       - hotels
+
+  frontend-hotels:
+    image: frontend-hotels
+    container_name: 'frontend-hotels'
+    ports:
+      - "4000:4000"
+    networks:
+      - data-service-network
+
+  frontend-flight:
+    image: frontend-flight
+    container_name: 'frontend-flight'
+    ports:
+      - "3000:3000"
+    networks:
+      - data-service-network
+    depends_on:
+      - frontend-hotels
 networks:
   data-service-network: {}
