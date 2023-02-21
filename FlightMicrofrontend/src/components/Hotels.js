@@ -5,7 +5,6 @@ function Hotels(props)
 {
     return (
     <div>
-        {/* cartof */}
         <RemoteWrapper flightId={props.flightId}></RemoteWrapper>
     </div>)
 }

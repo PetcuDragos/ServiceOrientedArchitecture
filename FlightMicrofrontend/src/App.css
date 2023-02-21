@@ -1,0 +1,28 @@
+html>body>#root>div {
+    height: 100%;
+    min-height: 100vh;
+}
+
+.background-container {
+    background: linear-gradient(180deg, cadetblue 20%, rgba(0, 0, 0, 0.8));
+
+}
+
+.title-container {
+    height: 100px;
+    font-family: Garamond, serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title-content {
+    flex: 1;
+    font-size: 20pt;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

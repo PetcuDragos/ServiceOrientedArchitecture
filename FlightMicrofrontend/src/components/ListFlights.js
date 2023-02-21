@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BookFlight from "./BookFlight";
 import Hotels from "./Hotels";
 import "./ListFlights.css";
 
@@ -50,19 +49,16 @@ function ListFlights() {
                         {flight.origin} - {flight.destination}
                     </div>
                     {flightsToggled.includes(flight.id) ? (
-                        <div class="flight-content">
-                            <div class="flight-duration">{flight.durationInMinutes}</div>
-                            <div class="flight-price">{flight.price}</div>
-                            <div class="flight-placesLeft">{flight.placesLeft}</div>
-                            <BookFlight/>
+                        <div className="flight-content">
+                            <div className="flight-duration"><img src="duration.svg" /> {flight.durationInMinutes} minutes.</div>
+                            <div className="flight-price"><img src="price.svg" /> {flight.price} euro.</div>
+                            <div className="flight-placesLeft"><img src="places-left.svg" />{flight.placesLeft} places left.</div>
 
                             <div class="flight-resources">
-                                {/* <div onClick="getHotelsForFlight(flight.id)">Get hotels for destination flight</div> */}
-                                {/* <div * ngFor= "let hotel of getHotelsForFlightId(flight.id)" >
-                {{ hotel.id }},{{ hotel.name }},{{ hotel.city }},{{ hotel.pricePerNight }},{{ hotel.placesLeft }}
-                </div> */}
-                            <div onClick={()=>toggleHotels(flight.id)}> See hotels around </div>
-                                <Hotels flightId={flight.id}/>
+                                <button className="hotels-button" role="button" onClick={() => toggleHotels(flight.id)}> See hotels around </button>
+                                {hotelsToggled.includes(flight.id) ? (
+                                    (<Hotels flightId={flight.id} />)
+                                ) : null}
                             </div >
                         </div >) : null}
                 </div >

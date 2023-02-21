@@ -1,19 +1,19 @@
-import React from "react";
-import ErrorBoundary from "../ErrorBoundary";
+import React, { useEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 const RemoteApp = React.lazy(() => import("Remote/App"));
-
 function RemoteWrapper(props) {
+    const [wait, setWait] = useState(true);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setWait(false);
+        }, 1000);
+        return () => clearTimeout(timer);
+
+    }, [setWait]);
     return (
-        <div
-            style={{
-                border: "1px solid red",
-                background: "white",
-            }}
-        >
-            <ErrorBoundary>
-                <RemoteApp flightId={props.flightId}/>
-            </ErrorBoundary>
+        <div>
+            {wait ? <LoadingSpinner /> : <RemoteApp flightId={props.flightId} />}
         </div>
     );
 }
