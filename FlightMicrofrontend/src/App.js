@@ -3,7 +3,6 @@ import ListFlights from "./components/ListFlights";
 import "./App.css";
 import Login from "./components/Login";
 import { Buffer } from 'buffer';
-import Socket from "./components/Socket";
 
 function App() {
   const [isConnected, setIsConnected] = useState(false);
@@ -29,11 +28,6 @@ function App() {
       )
   }
 
-
-  useEffect(() => {
-    
-  }, []);
-
   return (
     <div className="background-background">
       {isConnected ? (
@@ -43,7 +37,6 @@ function App() {
               CHECK OUR FLIGHTS!
             </div>
           </div>
-          <Socket></Socket>
           <ListFlights username={username} password={password} tokenId={tokenId} />
         </div>
       ) : <Login credentialsHandler={credentialsHandler} />}

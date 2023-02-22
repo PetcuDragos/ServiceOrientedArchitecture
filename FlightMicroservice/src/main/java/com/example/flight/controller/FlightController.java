@@ -7,9 +7,6 @@ import com.example.flight.model.Flight;
 import com.example.flight.repository.FlightRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,32 +26,17 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*") //this line
 @RestController
 public class FlightController {
 
-    private Logger logger = LoggerFactory.getLogger(FlightController.class);
+    private final Logger logger = LoggerFactory.getLogger(FlightController.class);
     @Autowired
     private FlightRepository flightRepository;
     @Autowired
     private HotelClient hotelClient;
-
-//    private ConnectionFactory factory;
-//    private Connection connection;
-//    private Channel channel;
-//
-//    String EXCHANGE_NAME = "notification";
-
-    public FlightController() throws IOException, TimeoutException {
-//        factory = new ConnectionFactory();
-//        factory.setHost("localhost");
-//        connection = factory.newConnection();
-//        channel = connection.createChannel();
-//        channel.exchangeDeclare(EXCHANGE_NAME, "topic");
-    }
 
     @GetMapping(path = "/login")
     public ResponseEntity<String> login() {
@@ -76,18 +58,6 @@ public class FlightController {
         }
         Flight flight = possibleFlightById.get();
         flight.setPlacesLeft(flight.getPlacesLeft() - 1);
-
-//        logger.info("flight changed");
-//        TextMessageDto textMessageDto = new TextMessageDto();
-//        textMessageDto.setMessage("The flight" + flight.getOrigin() + " - " + flight.getDestination() + " has been booked!");
-//        template.convertAndSend("/topic/message", textMessageDto);
-//        String message = "The flight " + flight.getOrigin() + " - " + flight.getDestination() + " has been booked!";
-//        try {
-//            channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes());
-//            System.out.println(" [x] Sent '" + "':'" + message + "'");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
 
         return ResponseEntity.ok(flight);
     }
