@@ -8,8 +8,8 @@ CREATE TABLE hotel
 );
 
 INSERT INTO hotel
-values (1, 'Margareta', 'Bistrita', 10, 10),
-       (2, 'Coroana de Aur', 'Bistrita', 30, 15),
+values (1, 'Claridge', 'London', 10, 10),
+       (2, 'The Savoy', 'London', 30, 15),
        (3, 'Mercure Wien Westbahnhof', 'Vienna', 100, 30),
        (4, 'St Christopher', 'Vienna', 80, 10),
        (5, 'Leonardo Hotel', 'Berlin', 60, 20),

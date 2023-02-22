@@ -13,7 +13,7 @@ function RemoteWrapper(props) {
     }, [setWait]);
     return (
         <div>
-            {wait ? <LoadingSpinner /> : <RemoteApp flightId={props.flightId} />}
+            {wait ? <LoadingSpinner /> : <RemoteApp flightId={props.flightId} tokenId={props.tokenId}/>}
         </div>
     );
 }

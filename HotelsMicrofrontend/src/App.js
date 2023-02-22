@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 
 function App(props) {
   const [hotels, setHotels] = useState([]);
+  let tokenId = props.tokenId;
   useEffect(() => {
     let url = "http://localhost:8080/flight/" + props.flightId + "/hotels";
-    fetch(url)
+    fetch(url, { headers: { 'Authorization': tokenId } })
       .then(res => res.json())
       .then(
         (result) => {

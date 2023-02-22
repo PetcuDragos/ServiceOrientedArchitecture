@@ -9,7 +9,7 @@ create table flight
 );
 
 INSERT INTO Flight
-values (1, 'Cluj', 'Bistrita', 20, 15, 10),
+values (1, 'Cluj', 'London', 20, 15, 10),
        (2, 'Cluj', 'Vienna', 60, 150, 15),
        (3, 'Bucuresti', 'Berlin', 80, 120, 10),
        (4, 'Bucuresti', 'Paris', 90, 150, 20),
